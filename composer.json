@@ -11,7 +11,8 @@
     "cakephp/cakephp" : "2.5.*",
     "friendsofcake/crud" : "3.*",
     "josegonzalez/dotenv": "0.3.*",
-    "ad7six/dsn": "0.3.*"
+    "ad7six/dsn": "0.3.*",
+    "cakedc/migrations": "2.3.*"
   },
   "require-dev": {
     "cakephp/debug_kit" : "2.2.*",
@@ -25,7 +26,10 @@
     "heroku": {
       "framework": "cakephp2",
       "document-root": "webroot",
-      "index-document": "index.php"
+      "index-document": "index.php",
+      "compile": [
+        "app/Console/cake Migrations.migration run all"
+      ]
     }
   }
 }

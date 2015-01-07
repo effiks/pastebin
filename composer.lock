@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7e4eeba83ce7cffd574003f01da2ffd4",
+    "hash": "f8c537f8cca73de853164248f0f9dc9e",
     "packages": [
         {
             "name": "ad7six/dsn",
@@ -47,6 +47,44 @@
             ],
             "description": "A utility for parsing and generating service DSNs",
             "time": "2014-05-31 16:17:08"
+        },
+        {
+            "name": "cakedc/migrations",
+            "version": "2.3.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CakeDC/migrations.git",
+                "reference": "0d62dda64f4386fb29e68e3ba4d022aa90252aee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CakeDC/migrations/zipball/0d62dda64f4386fb29e68e3ba4d022aa90252aee",
+                "reference": "0d62dda64f4386fb29e68e3ba4d022aa90252aee",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "*",
+                "php": ">=5.2.8"
+            },
+            "type": "cakephp-plugin",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cake Development Corporation",
+                    "email": "team@cakedc.com",
+                    "homepage": "http://cakedc.com"
+                }
+            ],
+            "description": "Migrations Plugin for CakePHP",
+            "homepage": "http://cakedc.com",
+            "keywords": [
+                "cakephp",
+                "migrations"
+            ],
+            "time": "2014-10-18 08:52:31"
         },
         {
             "name": "cakephp/cakephp",
