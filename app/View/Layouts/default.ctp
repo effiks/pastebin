@@ -27,6 +27,9 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		<?php echo $cakeDescription ?>:
 		<?php echo $title_for_layout; ?>
 	</title>
+	<?php if (!empty($noIndex)) : ?>
+	<meta name="robots" content="noindex">
+	<?php endif; ?>
 	<?php
 		echo $this->Html->meta('icon');
 

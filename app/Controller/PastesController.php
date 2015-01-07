@@ -40,6 +40,7 @@ class PastesController extends AppController {
             ];
         });
 
+        $this->set('noIndex', true);
         return $this->Crud->execute();
     }
 
