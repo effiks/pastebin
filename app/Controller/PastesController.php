@@ -13,6 +13,13 @@ class PastesController extends AppController {
         $this->Crud->mapAction('p', 'Crud.View');
     }
 
+    public function index() {
+        $this->Crud->on('beforePaginate', function(CakeEvent $event) {
+            $event->subject->paginator->settings['conditions']['private'] = false;
+        });
+        return $this->Crud->execute();
+    }
+
     public function p($id) {
         // Allows the $id to contain non-numeric values
         $this->Crud->action()->config('validateId', false);
