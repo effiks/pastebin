@@ -4,6 +4,7 @@
 		<legend><?php echo __('Add Paste'); ?></legend>
 	<?php
 		echo $this->Form->input('name');
+		echo $this->Form->input('private');
 		echo $this->Form->input('language');
 		echo $this->Form->input('paste');
 	?>

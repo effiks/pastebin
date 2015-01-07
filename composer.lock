@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f8c537f8cca73de853164248f0f9dc9e",
+    "hash": "272a716f560c585ab3216f4b5861d68c",
     "packages": [
         {
             "name": "ad7six/dsn",
@@ -334,6 +334,51 @@
                 "php"
             ],
             "time": "2014-05-28 14:40:35"
+        },
+        {
+            "name": "zackkitzmiller/tiny",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zackkitzmiller/tiny-php.git",
+                "reference": "4908c108ef1debeb86e0626ce747a3e3e73fe3c9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zackkitzmiller/tiny-php/zipball/4908c108ef1debeb86e0626ce747a3e3e73fe3c9",
+                "reference": "4908c108ef1debeb86e0626ce747a3e3e73fe3c9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ZackKitzmiller": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jacob DeHart"
+                },
+                {
+                    "name": "Kyle Bragger"
+                },
+                {
+                    "name": "Zack Kitzmiller",
+                    "email": "zack@inrpce.com"
+                }
+            ],
+            "homepage": "http://github.com/zackkitzmiller/tiny-php",
+            "time": "2014-01-20 18:48:13"
         }
     ],
     "packages-dev": [

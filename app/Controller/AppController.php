@@ -29,6 +29,7 @@ App::uses('CrudControllerTrait', 'Crud.Lib');
  * Add your application-wide methods in the class below, your controllers
  * will inherit them.
  *
+ * @property 	CrudComponent $Crud
  * @package		app.Controller
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */

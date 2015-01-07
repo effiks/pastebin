@@ -5,6 +5,7 @@
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('name');
+		echo $this->Form->input('private');
 		echo $this->Form->input('language');
 		echo $this->Form->input('paste');
 	?>

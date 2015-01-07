@@ -121,3 +121,6 @@ Configure::write('Dispatcher.filters', [
 	'AssetDispatcher',
 	'CacheDispatcher'
 ]);
+
+// Make this hash specific to your application
+Configure::write('Tiny.set', '5SX0Tsdifu2385sDF32sBSoih34xIFh');

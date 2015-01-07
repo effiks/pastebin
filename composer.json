@@ -12,7 +12,8 @@
     "friendsofcake/crud" : "3.*",
     "josegonzalez/dotenv": "0.3.*",
     "ad7six/dsn": "0.3.*",
-    "cakedc/migrations": "2.3.*"
+    "cakedc/migrations": "2.3.*",
+    "zackkitzmiller/tiny": "1.1.*"
   },
   "require-dev": {
     "cakephp/debug_kit" : "2.2.*",
