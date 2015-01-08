@@ -45,6 +45,23 @@ class AppController extends Controller {
 	public $components = [
 		'RequestHandler',
 		'Session',
+		'Auth' => [
+			'authenticate' => [
+				'Form' => ['passwordHasher' => 'Blowfish']
+			],
+			'authorize' => ['Controller'],
+			'flash' => [
+				'element' => 'default',
+				'key' => 'flash',
+				'params' => []
+			],
+			'loginRedirect' => [
+				'controller' => 'pastes', 'action' => 'index'
+			],
+			'logoutRedirect' => [
+				'controller' => 'pages', 'action' => 'display', 'home'
+			]
+		],
 		'Crud.Crud' => [
 			'listeners' => [
 				'Crud.Api',
@@ -52,16 +69,31 @@ class AppController extends Controller {
 				'Crud.ApiQueryLog'
 			]
 		],
-		'Paginator' => ['settings' => ['paramType' => 'querystring', 'limit' => 30]]
+		'Paginator' => [
+			'settings' => ['paramType' => 'querystring', 'limit' => 30]
+		]
 	];
 
-	function __construct($request = null, $response = null) {
+	/*function __construct($request = null, $response = null) {
 		if (Configure::read('debug')) {
 			$this->components['DebugKit.Toolbar'] = [
 				'panels' => ['ConfigurePanel.Configure']
 			];
 		}
 		parent::__construct($request, $response);
+	}*/
+
+	public function beforeFilter() {
+		parent::beforeFilter();
+		// other beforeFilter() logic here
+
+		// Allow users access to display action
+		// in the PagesController
+		$this->Auth->allow('display');
+	}
+
+	public function isAuthorized($user = null) {
+		return true;
 	}
 
 }
