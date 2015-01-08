@@ -11,6 +11,14 @@ class PastesController extends AppController {
         $this->Crud->mapAction('delete', 'Crud.Delete');
 
         $this->Crud->mapAction('p', 'Crud.View');
+
+        parent::beforeFilter();
+
+        // Allow all users access to index, view and p action
+        $this->Auth->allow('index', 'view', 'p');
+
+        // Also allow anonymous paste creation
+        $this->Auth->allow('add');
     }
 
     public function index() {
@@ -63,11 +71,33 @@ class PastesController extends AppController {
 
     public function add() {
         $this->Crud->on('beforeRedirect', [$this, '_onBeforeRedirectSave']);
+
+        // Get the current user_id
+        $user_id = $this->Auth->user('id');
+
+        // Hook into the initialize Crud event and pass in the user_id
+        $this->Crud->on('initialize', function(CakeEvent $event) use ($user_id) {
+            // Get a shorter reference to the request object
+            $request = $event->subject->request;
+
+            // Only modify the data if it is a POST or PUT request
+            if ($request->is(['post', 'put'])) {
+                // Set the user_id in the posted data
+                $request->data['Paste']['user_id'] = $user_id;
+            }
+        });
+
         return $this->Crud->execute();
     }
 
     public function edit() {
         $this->Crud->on('beforeRedirect', [$this, '_onBeforeRedirectSave']);
+        $this->Crud->on('beforeFind', [$this, '_onBeforeFind']);
+        return $this->Crud->execute();
+    }
+
+    public function delete() {
+        $this->Crud->on('beforeFind', [$this, '_onBeforeFind']);
         return $this->Crud->execute();
     }
 
@@ -96,6 +126,18 @@ class PastesController extends AppController {
             $message['params'],
             'flash'
         );
+    }
+
+    public function _onBeforeFind(CakeEvent $event) {
+        $user_id = $this->Auth->user('id');
+
+        // do not give non-logged in users edit/deletion abilities
+        if (empty($user_id)) {
+            $event->stopPropagation();
+        }
+
+        // Scope the find to the current user
+        $event->subject->query['conditions']['Paste.user_id'] = $user_id;
     }
 }
 ?>

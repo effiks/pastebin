@@ -7,7 +7,7 @@
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('language'); ?></th>
 			<th><?php echo $this->Paginator->sort('paste'); ?></th>
-			<th><?php echo $this->Paginator->sort('created'); ?></th>
+			<th><?php echo $this->Paginator->sort('user_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
@@ -19,7 +19,7 @@
 		<td><?php echo h($paste['Paste']['name']); ?>&nbsp;</td>
 		<td><?php echo h($paste['Paste']['language']); ?>&nbsp;</td>
 		<td><?php echo h($paste['Paste']['paste']); ?>&nbsp;</td>
-		<td><?php echo h($paste['Paste']['created']); ?>&nbsp;</td>
+		<td><?php echo h($paste['Paste']['user_id']); ?>&nbsp;</td>
 		<td><?php echo h($paste['Paste']['modified']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $paste['Paste']['id'])); ?>

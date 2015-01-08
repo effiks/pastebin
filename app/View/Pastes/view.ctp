@@ -11,6 +11,11 @@
 			<?php echo h($paste['Paste']['name']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('User'); ?></dt>
+		<dd>
+			<?php echo h($paste['Paste']['user_id']); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('Language'); ?></dt>
 		<dd>
 			<?php echo h($paste['Paste']['language']); ?>
