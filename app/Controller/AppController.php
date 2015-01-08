@@ -55,4 +55,13 @@ class AppController extends Controller {
 		'Paginator' => ['settings' => ['paramType' => 'querystring', 'limit' => 30]]
 	];
 
+	function __construct($request = null, $response = null) {
+		if (Configure::read('debug')) {
+			$this->components['DebugKit.Toolbar'] = [
+				'panels' => ['ConfigurePanel.Configure']
+			];
+		}
+		parent::__construct($request, $response);
+	}
+
 }

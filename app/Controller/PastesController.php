@@ -1,6 +1,6 @@
 <?php
 App::uses('AppController', 'Controller');
-
+App::uses('DebugTimer', 'DebugKit.Lib');
 
 class PastesController extends AppController {
     public function beforeFilter() {
@@ -45,6 +45,7 @@ class PastesController extends AppController {
     }
 
     public function view($id) {
+        DebugTimer::start('PastesController::attach_beforefind_event');
         // Modifies the find conditions for our privacy settings
         $this->Crud->on('beforeFind', function(CakeEvent $event) {
             // Ensures that privacy is off for a given paste
@@ -53,8 +54,11 @@ class PastesController extends AppController {
                 'Paste.private' => false,
             ];
         });
+        DebugTimer::stop('PastesController::attach_beforefind_event');
 
+        DebugTimer::start('Crud::execute');
         return $this->Crud->execute();
+        DebugTimer::stop('Crud::execute');
     }
 
     public function add() {
